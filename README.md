@@ -2,7 +2,7 @@
 
 Learning [ReactJS](https://reactjs.org) from Scratch
 
-1. First of all, Install [NodeJS](https://nodejs.org)
+First of all, Install [NodeJS](https://nodejs.org)
 ```
 cd /usr/local/src
 wget https://nodejs.org/dist/v16.15.0/node-v16.15.0-linux-x64.tar.xz
@@ -19,7 +19,7 @@ ln -s /usr/local/node-v16.15.0-linux-x64/bin/npx /usr/local/bin/npx
 ln -s /usr/local/node-v16.15.0-linux-x64/bin/npx /usr/bin/npx
 ```
 
-2. Start a server
+Start a server
 ```
 git clone https://github.com/deficoder/reactjs-scratch.git && cd reactjs-scratch
 
@@ -37,10 +37,10 @@ EOF
 python3.9 -m http.server 8001
 ```
 
-3. Learn React by doing
+Learn React by doing
 - Add React to a Website
 
-    - Step 1: Add a DOM Container to the HTML
+    Step 1: Add a DOM Container to the HTML
     ```
     <body>
         <!-- ... existing HTML ... -->
@@ -51,7 +51,7 @@ python3.9 -m http.server 8001
     </body>
     ```
 
-    - Step 2: Add the Script Tags: add three `<script>` tags to the HTML page right before the closing `</body>` tag
+    Step 2: Add the Script Tags: add three `<script>` tags to the HTML page right before the closing `</body>` tag
     ```
     <body>
         <h1>Welcome to ReactJS</h1>
@@ -74,7 +74,7 @@ python3.9 -m http.server 8001
     </body>
     ```
 
-    - Step 3: Create a React Component: Create a file called `like_button.js` next to your HTML page
+    Step 3: Create a React Component: Create a file called `like_button.js` next to your HTML page
     ```
     cat <<EOF > like_button.js
     'use strict';
@@ -105,34 +105,29 @@ python3.9 -m http.server 8001
     root.render(e(LikeButton));
     EOF
     ```
-    - Step 4: Start server
+    Step 4: Start server
     ```
     python3.9 -m http.server 8001
     ```
 
 - Create a New React App
-    1. Recommended Toolchains
+    Recommended Toolchains
     - **[Create React App](https://github.com/facebook/create-react-app)**: learning React or creating a new (Single-page Application)[https://reactjs.org/docs/glossary.html#single-page-application]
     - **[Next.js](https://nextjs.org)**: building a server-rendered website with Node.js
     - [Gatsby](https://www.gatsbyjs.org): building a static content-oriented website
 
-    2. Advanced Toolchains for experienced users
+    Advanced Toolchains for experienced users
     - **[Neutrino](https://neutrinojs.org)**: a preset for [React apps](https://neutrinojs.org/packages/react) and [React components](https://neutrinojs.org/packages/react-components)
     - [Nx](https://nx.dev/react): a toolkit for full-stack monorepo development, with built-in support for React, Next.js, [Express](https://expressjs.com), and more
     - [Parcel](https://parceljs.org): a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes/react)
     - [Razzle](https://github.com/jaredpalmer/razzle): a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js
 
-    3. [Creating a Toolchain from Scratch](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)
+    [Creating a Toolchain from Scratch](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)
     **Setup** [Yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com)
     - create a new repo in github and choice `Add .gitignore` template with Node
     - clone this repo to your dev host `git clone`
     - initialize your project with `npm init`
-    - create `public` and `src` directory in your new project folder, like following structure:
-    ```
-    .
-    +-- public
-    +-- src
-    ```
+    - create `public` and `src` directory in your new project folder
     - copy the following HTML markup into a new file `index.html` inside of the public directory
     ```
     cat <<EOF > public/index.html
@@ -157,7 +152,7 @@ python3.9 -m http.server 8001
     ```
 
     **[Babel](https://babeljs.io)** 
-    - run
+    - install dependencies
     ```
     npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0 @babel/preset-env@7.1.0 @babel/preset-react@7.0.0
     ```
@@ -218,7 +213,7 @@ python3.9 -m http.server 8001
     ```
 
     **React** 
-    - install packages
+    - install dependencies
     ```
     npm i --save-dev react@16.5.2 react-dom@16.5.2
     ```
@@ -269,7 +264,7 @@ python3.9 -m http.server 8001
     ```
 
     **HMR**
-    - install
+    - install dependencies
     ```
     npm i --save react-hot-loader@4.3.11
     ```
@@ -300,4 +295,4 @@ python3.9 -m http.server 8001
     "build": "webpack --mode development"
     ```
 
-    4. [Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
+    [Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
