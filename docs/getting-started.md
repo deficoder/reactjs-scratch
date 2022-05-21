@@ -39,78 +39,82 @@ python3.9 -m http.server 8001
 
 3. Learn React by doing
 
-#### Add React to a Website
+    **Add React to a Website**
 
-Step 1: Add a DOM Container to the HTML
-```
-<body>
-    <!-- ... existing HTML ... -->
+    Step 1: Add a DOM Container to the HTML
+    
+    ```
+    <body>
+        <!-- ... existing HTML ... -->
 
-    <div id="like_button_container"></div>
+        <div id="like_button_container"></div>
 
-    <!-- ... existing HTML ... -->
-</body>
-```
+        <!-- ... existing HTML ... -->
+    </body>
+    ```
 
-Step 2: Add the Script Tags: add three `<script>` tags to the HTML page right before the closing `</body>` tag
-```
-<body>
-    <h1>Welcome to ReactJS</h1>
-    <!-- ... existing HTML ... -->
+    Step 2: Add the Script Tags: add three `<script>` tags to the HTML page right before the closing `</body>` tag
+    
+    ```
+    <body>
+        <h1>Welcome to ReactJS</h1>
+        <!-- ... existing HTML ... -->
 
-    <div id="like_button_container"></div>
+        <div id="like_button_container"></div>
 
-    <!-- ... existing HTML ... -->
+        <!-- ... existing HTML ... -->
 
-    <!-- Load React -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <!-- Load React -->
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
-    <!-- For production -->
-    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script> -->
-    <!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> -->
+        <!-- For production -->
+        <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script> -->
+        <!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> -->
 
-    <!-- Load our React component. -->
-    <script src="like_button.js"></script>
-</body>
-```
+        <!-- Load our React component. -->
+        <script src="like_button.js"></script>
+    </body>
+    ```
 
-Step 3: Create a React Component: Create a file called `like_button.js` next to your HTML page
-```
-cat <<EOF > like_button.js
-'use strict';
+    Step 3: Create a React Component: Create a file called `like_button.js` next to your HTML page
+    
+    ```
+    cat <<EOF > like_button.js
+    'use strict';
 
-const e = React.createElement;
+    const e = React.createElement;
 
-class LikeButton extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { liked: false };
-    }
-
-    render() {
-        if (this.state.liked) {
-            return 'You liked this.';
+    class LikeButton extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = { liked: false };
         }
 
-        return e(
-            'button',
-            { onClick: () => this.setState({ liked: true }) },
-            'Like'
-        );
+        render() {
+            if (this.state.liked) {
+                return 'You liked this.';
+            }
+
+            return e(
+                'button',
+                { onClick: () => this.setState({ liked: true }) },
+                'Like'
+            );
+        }
     }
-}
 
-const domContainer = document.querySelector('#like_button_container');
-const root = ReactDOM.createRoot(domContainer);
-root.render(e(LikeButton));
-EOF
-```
+    const domContainer = document.querySelector('#like_button_container');
+    const root = ReactDOM.createRoot(domContainer);
+    root.render(e(LikeButton));
+    EOF
+    ```
 
-Step 4: Start server
-```
-python3.9 -m http.server 8001
-```
+    Step 4: Start server
+    
+    ```
+    python3.9 -m http.server 8001
+    ```
 
 #### Create a New React App
 
@@ -323,4 +327,4 @@ python3.9 -m http.server 8001
 
 3. Optimizing performance for Production
 
-[Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
+    [Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
