@@ -105,24 +105,26 @@ Learn React by doing
     root.render(e(LikeButton));
     EOF
     ```
+    
     Step 4: Start server
     ```
     python3.9 -m http.server 8001
     ```
 
 - Create a New React App
-    Recommended Toolchains
+
+    ***Recommended Toolchains***
     - **[Create React App](https://github.com/facebook/create-react-app)**: learning React or creating a new (Single-page Application)[https://reactjs.org/docs/glossary.html#single-page-application]
     - **[Next.js](https://nextjs.org)**: building a server-rendered website with Node.js
     - [Gatsby](https://www.gatsbyjs.org): building a static content-oriented website
 
-    Advanced Toolchains for experienced users
+    ***Advanced Toolchains for experienced users***
     - **[Neutrino](https://neutrinojs.org)**: a preset for [React apps](https://neutrinojs.org/packages/react) and [React components](https://neutrinojs.org/packages/react-components)
     - [Nx](https://nx.dev/react): a toolkit for full-stack monorepo development, with built-in support for React, Next.js, [Express](https://expressjs.com), and more
     - [Parcel](https://parceljs.org): a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes/react)
     - [Razzle](https://github.com/jaredpalmer/razzle): a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js
 
-    [Creating a Toolchain from Scratch](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)
+    ***[Creating a Toolchain from Scratch](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)***
     **Setup** [Yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com)
     - create a new repo in github and choice `Add .gitignore` template with Node
     - clone this repo to your dev host `git clone`
@@ -295,4 +297,4 @@ Learn React by doing
     "build": "webpack --mode development"
     ```
 
-    [Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
+    ***[Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)***
