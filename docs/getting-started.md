@@ -1,5 +1,5 @@
 
-### First of all, Install [NodeJS](https://nodejs.org)
+1. First of all, Install [NodeJS](https://nodejs.org)
 
 ```
 cd /usr/local/src
@@ -17,7 +17,7 @@ ln -s /usr/local/node-v16.15.0-linux-x64/bin/npx /usr/local/bin/npx
 ln -s /usr/local/node-v16.15.0-linux-x64/bin/npx /usr/bin/npx
 ```
 
-### Start a server
+2. Start a server
 
 ```
 git clone https://github.com/deficoder/reactjs-scratch.git && cd reactjs-scratch
@@ -36,96 +36,98 @@ EOF
 python3.9 -m http.server 8001
 ```
 
-### Learn React by doing
+3. Learn React by doing
 
 #### Add React to a Website
 
-    Step 1: Add a DOM Container to the HTML
-    ```
-    <body>
-        <!-- ... existing HTML ... -->
+Step 1: Add a DOM Container to the HTML
+```
+<body>
+    <!-- ... existing HTML ... -->
 
-        <div id="like_button_container"></div>
+    <div id="like_button_container"></div>
 
-        <!-- ... existing HTML ... -->
-    </body>
-    ```
+    <!-- ... existing HTML ... -->
+</body>
+```
 
-    Step 2: Add the Script Tags: add three `<script>` tags to the HTML page right before the closing `</body>` tag
-    ```
-    <body>
-        <h1>Welcome to ReactJS</h1>
-        <!-- ... existing HTML ... -->
+Step 2: Add the Script Tags: add three `<script>` tags to the HTML page right before the closing `</body>` tag
+```
+<body>
+    <h1>Welcome to ReactJS</h1>
+    <!-- ... existing HTML ... -->
 
-        <div id="like_button_container"></div>
+    <div id="like_button_container"></div>
 
-        <!-- ... existing HTML ... -->
+    <!-- ... existing HTML ... -->
 
-        <!-- Load React -->
-        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load React -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
-        <!-- For production -->
-        <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script> -->
-        <!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> -->
+    <!-- For production -->
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script> -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script> -->
 
-        <!-- Load our React component. -->
-        <script src="like_button.js"></script>
-    </body>
-    ```
+    <!-- Load our React component. -->
+    <script src="like_button.js"></script>
+</body>
+```
 
-    Step 3: Create a React Component: Create a file called `like_button.js` next to your HTML page
-    ```
-    cat <<EOF > like_button.js
-    'use strict';
+Step 3: Create a React Component: Create a file called `like_button.js` next to your HTML page
+```
+cat <<EOF > like_button.js
+'use strict';
 
-    const e = React.createElement;
+const e = React.createElement;
 
-    class LikeButton extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = { liked: false };
-        }
-
-        render() {
-            if (this.state.liked) {
-                return 'You liked this.';
-            }
-
-            return e(
-                'button',
-                { onClick: () => this.setState({ liked: true }) },
-                'Like'
-            );
-        }
+class LikeButton extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { liked: false };
     }
 
-    const domContainer = document.querySelector('#like_button_container');
-    const root = ReactDOM.createRoot(domContainer);
-    root.render(e(LikeButton));
-    EOF
-    ```
-    
-    Step 4: Start server
-    ```
-    python3.9 -m http.server 8001
-    ```
+    render() {
+        if (this.state.liked) {
+            return 'You liked this.';
+        }
+
+        return e(
+            'button',
+            { onClick: () => this.setState({ liked: true }) },
+            'Like'
+        );
+    }
+}
+
+const domContainer = document.querySelector('#like_button_container');
+const root = ReactDOM.createRoot(domContainer);
+root.render(e(LikeButton));
+EOF
+```
+
+Step 4: Start server
+```
+python3.9 -m http.server 8001
+```
 
 #### Create a New React App
-1. Recommended Toolchains
-- **[Create React App](https://github.com/facebook/create-react-app)**: learning React or creating a new (Single-page Application)[https://reactjs.org/docs/glossary.html#single-page-application]
-- **[Next.js](https://nextjs.org)**: building a server-rendered website with Node.js
+
+1. Toolchains
+
+- [Create React App](https://github.com/facebook/create-react-app): learning React or creating a new (Single-page Application)[https://reactjs.org/docs/glossary.html#single-page-application]
+- [Next.js](https://nextjs.org): building a server-rendered website with Node.js
 - [Gatsby](https://www.gatsbyjs.org): building a static content-oriented website
 
-2. Advanced Toolchains for experienced users
-- **[Neutrino](https://neutrinojs.org)**: a preset for [React apps](https://neutrinojs.org/packages/react) and [React components](https://neutrinojs.org/packages/react-components)
+- [Neutrino](https://neutrinojs.org): a preset for [React apps](https://neutrinojs.org/packages/react) and [React components](https://neutrinojs.org/packages/react-components)
 - [Nx](https://nx.dev/react): a toolkit for full-stack monorepo development, with built-in support for React, Next.js, [Express](https://expressjs.com), and more
 - [Parcel](https://parceljs.org): a fast, zero configuration web application bundler that [works with React](https://parceljs.org/recipes/react)
 - [Razzle](https://github.com/jaredpalmer/razzle): a server-rendering framework that doesn't require any configuration, but offers more flexibility than Next.js
 
-3. [Creating a Toolchain from Scratch](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)
+2. [Creating a Toolchain from Scratch](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)
 
-**Setup** [Yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com)
+Step 1 Setup: [Yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com)
+
 - create a new repo in github and choice `Add .gitignore` template with Node
 
 - clone this repo to your dev host `git clone`
@@ -158,15 +160,15 @@ cat <<EOF > public/index.html
 EOF
 ```
 
-**[Babel](https://babeljs.io)** 
+Step 2: [Babel](https://babeljs.io) 
 
-install dependencies
+- install dependencies
 
 ```
 npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0 @babel/preset-env@7.1.0 @babel/preset-react@7.0.0
 ```
 
-create a file called `.babelrc` in the project root, [Babel has a ton of plugins available](https://babeljs.io/docs/plugins/)
+- create a file called `.babelrc` in the project root, [Babel has a ton of plugins available](https://babeljs.io/docs/plugins/)
 
 ```
 cat <<EOF > .babelrc
@@ -176,15 +178,15 @@ cat <<EOF > .babelrc
 EOF
 ```
 
-**[Webpack](https://webpack.js.org)** Now we need to acquire and configure a bundler Webpack
+Step 3: [Webpack](https://webpack.js.org) to acquire and configure a bundler Webpack
 
-install a few more packages, and you'll want to save these as dev dependencies
+- install a few more packages, and you'll want to save these as dev dependencies
 
 ```
 npm install --save-dev webpack@4.19.1 webpack-cli@3.1.1 webpack-dev-server@3.1.8 style-loader@0.23.0 css-loader@1.0.0 babel-loader@8.0.2
 ```
 
-create a file called `webpack.config.js` in the project root
+- create a file called `webpack.config.js` in the project root
 
 ```
 cat <<EOF > webpack.config.js
@@ -225,15 +227,15 @@ plugins: [new webpack.HotModuleReplacementPlugin()]
 EOF
 ```
 
-**React** 
+Step 4: React 
 
-install dependencies
+- install dependencies
 
 ```
 npm i --save-dev react@16.5.2 react-dom@16.5.2
 ```
 
-create a file called `index.js` in `src` directory
+- create a file called `index.js` in `src` directory
 
 ```
 cat <<EOF > src/index.js
@@ -244,7 +246,7 @@ ReactDOM.render(<App />, document.getElementById("root"));
 EOF
 ```
 
-create another file called `App.js` in `src` directory
+- create another file called `App.js` in `src` directory
 
 ```
 cat <<EOF > src/App.js
@@ -265,7 +267,7 @@ export default App;
 EOF
 ```
 
-create a css file called `App.css` in `src`
+- create a css file called `App.css` in `src`
 
 ```
 cat <<EOF > src/App.css
@@ -276,21 +278,21 @@ cat <<EOF > src/App.css
 EOF
 ```
 
-start dev server: add this into `package.json` scripts and run `npm run dev-server`
+- start dev server: add this into `package.json` scripts and run `npm run dev-server`
 
 ```
 "dev-server": "webpack-dev-server --mode development"
 ```
 
-**HMR**
+Step 5: HMR
 
-install dependencies
+- install dependencies
 
 ```
 npm i --save react-hot-loader@4.3.11
 ```
 
-mofidy App.js
+- mofidy App.js
 
 ```
 cat <<EOF > src/App.js
@@ -312,10 +314,12 @@ export default hot(module)(App);
 EOF
 ```
 
-add `build` into `scripts` and run `npm run build`
+- add `build` into `scripts` and run `npm run build`
 
 ```
 "build": "webpack --mode development"
 ```
 
-4. [Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
+3. Optimizing performance for Production
+
+[Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
