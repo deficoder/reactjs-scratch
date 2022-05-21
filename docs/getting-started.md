@@ -1,5 +1,5 @@
 
-1. First of all, Install [NodeJS](https://nodejs.org)
+### 1. First of all, Install [NodeJS](https://nodejs.org)
 
 ```
 cd /usr/local/src
@@ -17,7 +17,7 @@ ln -s /usr/local/node-v16.15.0-linux-x64/bin/npx /usr/local/bin/npx
 ln -s /usr/local/node-v16.15.0-linux-x64/bin/npx /usr/bin/npx
 ```
 
-2. Start a server
+### 2. Start a server
 
 ```
 git clone https://github.com/deficoder/reactjs-scratch.git && cd reactjs-scratch
@@ -36,7 +36,7 @@ EOF
 python3.9 -m http.server 8001
 ```
 
-3. Learn React by doing
+### 3. Learn React by doing
 
 #### Add React to a Website
 
