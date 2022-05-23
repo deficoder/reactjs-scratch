@@ -327,4 +327,4 @@ python3.9 -m http.server 8001
 
 ### 3. Optimizing performance for Production
 
-[Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
+- [Use the Production Build](https://reactjs.org/docs/optimizing-performance.html#use-the-production-build)
