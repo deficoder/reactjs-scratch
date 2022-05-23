@@ -132,11 +132,11 @@ python3.9 -m http.server 8001
     ***[Creating a Toolchain from Scratch](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)***
 
     Step 1: Setup [npm](https://www.npmjs.com)
-    - create a new repo in github and choice `Add .gitignore` template with Node
-    - clone this repo to your dev host `git clone`
-    - initialize your project with `npm init`
-    - create `public` and `src` directory in your new project folder
-    - copy the following HTML markup into a new file `index.html` inside of the public directory
+    1.1 create a new repo in github and choice `Add .gitignore` template with Node
+    1.2 clone this repo to your dev host `git clone`
+    1.3 initialize your project with `npm init`
+    1.4 create `public` and `src` directory in your new project folder
+    1.5 copy the following HTML markup into a new file `index.html` inside of the public directory
 
     ```
     cat <<EOF > public/index.html
@@ -160,164 +160,164 @@ python3.9 -m http.server 8001
     EOF
     ```
 
-        Step 2: [Babel](https://babeljs.io) 
-        - install dependencies
+    Step 2: [Babel](https://babeljs.io) 
+    2.1 install dependencies
 
-        ```
-        npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0 @babel/preset-env@7.1.0 @babel/preset-react@7.0.0
-        ```
+    ```
+    npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0 @babel/preset-env@7.1.0 @babel/preset-react@7.0.0
+    ```
 
-        - create a file called `.babelrc` in the project root, [Babel has a ton of plugins available](https://babeljs.io/docs/plugins/)
+    2.2 create a file called `.babelrc` in the project root, [Babel has a ton of plugins available](https://babeljs.io/docs/plugins/)
 
-        ```
-        cat <<EOF > .babelrc
+    ```
+    cat <<EOF > .babelrc
+    {
+        "presets": ["@babel/env", "@babel/preset-react"]
+    }
+    EOF
+    ```
+
+    Step 3: [Webpack](https://webpack.js.org) to acquire and configure a bundler Webpack
+
+    3.1 install a few more packages, and you'll want to save these as dev dependencies
+
+    ```
+    npm install --save-dev webpack@4.19.1 webpack-cli@3.1.1 webpack-dev-server@3.1.8 style-loader@0.23.0 css-loader@1.0.0 babel-loader@8.0.2
+    ```
+
+    3.2 create a file called `webpack.config.js` in the project root
+
+    ```
+    cat <<EOF > webpack.config.js
+    const path = require("path");
+    const webpack = require("webpack");
+
+    module.exports = {
+    entry: "./src/index.js",
+    mode: "development",
+    module: {
+        rules: [
         {
-            "presets": ["@babel/env", "@babel/preset-react"]
-        }
-        EOF
-        ```
-
-        Step 3: [Webpack](https://webpack.js.org) to acquire and configure a bundler Webpack
-
-        - install a few more packages, and you'll want to save these as dev dependencies
-
-        ```
-        npm install --save-dev webpack@4.19.1 webpack-cli@3.1.1 webpack-dev-server@3.1.8 style-loader@0.23.0 css-loader@1.0.0 babel-loader@8.0.2
-        ```
-
-        - create a file called `webpack.config.js` in the project root
-
-        ```
-        cat <<EOF > webpack.config.js
-        const path = require("path");
-        const webpack = require("webpack");
-
-        module.exports = {
-        entry: "./src/index.js",
-        mode: "development",
-        module: {
-            rules: [
-            {
-                test: /\.(js|jsx)$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: "babel-loader",
-                options: { presets: ["@babel/env"] }
-            },
-            {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
-            }
-            ]
+            test: /\.(js|jsx)$/,
+            exclude: /(node_modules|bower_components)/,
+            loader: "babel-loader",
+            options: { presets: ["@babel/env"] }
         },
-        resolve: { extensions: ["*", ".js", ".jsx"] },
-        output: {
-            path: path.resolve(__dirname, "dist/"),
-            publicPath: "/dist/",
-            filename: "bundle.js"
-        },
-        devServer: {
-            contentBase: path.join(__dirname, "public/"),
-            port: 3000,
-            publicPath: "http://localhost:3000/dist/",
-            hotOnly: true
-        },
-        plugins: [new webpack.HotModuleReplacementPlugin()]
-        };
-        EOF
-        ```
-
-        Step 4: React 
-
-        - install dependencies
-
-        ```
-        npm i --save-dev react@16.5.2 react-dom@16.5.2
-        ```
-
-        - create a file called `index.js` in `src` directory
-
-        ```
-        cat <<EOF > src/index.js
-        import React from "react";
-        import ReactDOM from "react-dom";
-        import App from "./App.js";
-        ReactDOM.render(<App />, document.getElementById("root"));
-        EOF
-        ```
-
-        - create another file called `App.js` in `src` directory
-
-        ```
-        cat <<EOF > src/App.js
-        import React, { Component} from "react";
-        import "./App.css";
-
-        class App extends Component{
-            render(){
-                return(
-                <div className="App">
-                    <h1> Hello, World! </h1>
-                </div>
-                );
-            }
+        {
+            test: /\.css$/,
+            use: ["style-loader", "css-loader"]
         }
+        ]
+    },
+    resolve: { extensions: ["*", ".js", ".jsx"] },
+    output: {
+        path: path.resolve(__dirname, "dist/"),
+        publicPath: "/dist/",
+        filename: "bundle.js"
+    },
+    devServer: {
+        contentBase: path.join(__dirname, "public/"),
+        port: 3000,
+        publicPath: "http://localhost:3000/dist/",
+        hotOnly: true
+    },
+    plugins: [new webpack.HotModuleReplacementPlugin()]
+    };
+    EOF
+    ```
 
-        export default App;
-        EOF
-        ```
+    Step 4: React 
 
-        - create a css file called `App.css` in `src`
+    4.1 install dependencies
 
-        ```
-        cat <<EOF > src/App.css
-        .App {
-            margin: 1rem;
-            font-family: Arial, Helvetica, sans-serif;
-            }
-        EOF
-        ```
+    ```
+    npm i --save-dev react@16.5.2 react-dom@16.5.2
+    ```
 
-        - start dev server: add this into `package.json` scripts and run `npm run dev-server`
+    4.2 create a file called `index.js` in `src` directory
 
-        ```
-        "dev-server": "webpack-dev-server --mode development"
-        ```
+    ```
+    cat <<EOF > src/index.js
+    import React from "react";
+    import ReactDOM from "react-dom";
+    import App from "./App.js";
+    ReactDOM.render(<App />, document.getElementById("root"));
+    EOF
+    ```
 
-        Step 5: HMR
+    4.3 create another file called `App.js` in `src` directory
 
-        - install dependencies
+    ```
+    cat <<EOF > src/App.js
+    import React, { Component} from "react";
+    import "./App.css";
 
-        ```
-        npm i --save react-hot-loader@4.3.11
-        ```
-
-        - mofidy App.js
-
-        ```
-        cat <<EOF > src/App.js
-        import React, { Component} from "react";
-        import {hot} from "react-hot-loader";
-        import "./App.css";
-
-        class App extends Component{
-            render(){
-                return(
-                <div className="App">
-                    <h1> Hello, World! </h1>
-                </div>
-                );
-            }
+    class App extends Component{
+        render(){
+            return(
+            <div className="App">
+                <h1> Hello, World! </h1>
+            </div>
+            );
         }
+    }
 
-        export default hot(module)(App);
-        EOF
-        ```
+    export default App;
+    EOF
+    ```
 
-        - add `build` into `scripts` and run `npm run build`
+    4.4 create a css file called `App.css` in `src`
 
-        ```
-        "build": "webpack --mode development"
-        ```
+    ```
+    cat <<EOF > src/App.css
+    .App {
+        margin: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        }
+    EOF
+    ```
+
+    4.5 start dev server: add this into `package.json` scripts and run `npm run dev-server`
+
+    ```
+    "dev-server": "webpack-dev-server --mode development"
+    ```
+
+    Step 5: HMR
+
+    5.1 install dependencies
+
+    ```
+    npm i --save react-hot-loader@4.3.11
+    ```
+
+    5.2 mofidy App.js
+
+    ```
+    cat <<EOF > src/App.js
+    import React, { Component} from "react";
+    import {hot} from "react-hot-loader";
+    import "./App.css";
+
+    class App extends Component{
+        render(){
+            return(
+            <div className="App">
+                <h1> Hello, World! </h1>
+            </div>
+            );
+        }
+    }
+
+    export default hot(module)(App);
+    EOF
+    ```
+
+    5.3 add `build` into `scripts` and run `npm run build`
+
+    ```
+    "build": "webpack --mode development"
+    ```
 
 3. Optimizing performance for Production
 
