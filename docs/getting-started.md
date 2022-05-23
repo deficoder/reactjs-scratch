@@ -1,6 +1,6 @@
 ## Getting Started React
 
-### 1. First of all, Install [NodeJS](https://nodejs.org)
+1. First of all, Install [NodeJS](https://nodejs.org)
 
 ```
 cd /usr/local/src
@@ -18,7 +18,7 @@ ln -s /usr/local/node-v16.15.0-linux-x64/bin/npx /usr/local/bin/npx
 ln -s /usr/local/node-v16.15.0-linux-x64/bin/npx /usr/bin/npx
 ```
 
-### 2. Start a server
+2. Start a server
 
 ```
 git clone https://github.com/deficoder/reactjs-scratch.git && cd reactjs-scratch
@@ -37,7 +37,7 @@ EOF
 python3.9 -m http.server 8001
 ```
 
-### 3. Learn React by doing
+3. Learn React by doing
 
     **Add React to a Website**
 
@@ -133,15 +133,15 @@ python3.9 -m http.server 8001
 
     Step 1: Setup [npm](https://www.npmjs.com)
     
-    1.1 create a new repo in github and choice `Add .gitignore` template with Node
+    a. create a new repo in github and choice `Add .gitignore` template with Node
     
-    1.2 clone this repo to your dev host `git clone`
+    b. clone this repo to your dev host `git clone`
     
-    1.3 initialize your project with `npm init`
+    c. initialize your project with `npm init`
     
-    1.4 create `public` and `src` directory in your new project folder
+    c. create `public` and `src` directory in your new project folder
     
-    1.5 copy the following HTML markup into a new file `index.html` inside of the public directory
+    e. copy the following HTML markup into a new file `index.html` inside of the public directory
 
     ```
     cat <<EOF > public/index.html
@@ -167,13 +167,13 @@ python3.9 -m http.server 8001
 
     Step 2: [Babel](https://babeljs.io) 
     
-    2.1 install dependencies
+    a. install dependencies
 
     ```
     npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0 @babel/preset-env@7.1.0 @babel/preset-react@7.0.0
     ```
 
-    2.2 create a file called `.babelrc` in the project root, [Babel has a ton of plugins available](https://babeljs.io/docs/plugins/)
+    b. create a file called `.babelrc` in the project root, [Babel has a ton of plugins available](https://babeljs.io/docs/plugins/)
 
     ```
     cat <<EOF > .babelrc
@@ -185,13 +185,13 @@ python3.9 -m http.server 8001
 
     Step 3: [Webpack](https://webpack.js.org) to acquire and configure a bundler Webpack
 
-    3.1 install a few more packages, and you'll want to save these as dev dependencies
+    a. install a few more packages, and you'll want to save these as dev dependencies
 
     ```
     npm install --save-dev webpack@4.19.1 webpack-cli@3.1.1 webpack-dev-server@3.1.8 style-loader@0.23.0 css-loader@1.0.0 babel-loader@8.0.2
     ```
 
-    3.2 create a file called `webpack.config.js` in the project root
+    b. create a file called `webpack.config.js` in the project root
 
     ```
     cat <<EOF > webpack.config.js
@@ -234,13 +234,13 @@ python3.9 -m http.server 8001
 
     Step 4: React 
 
-    4.1 install dependencies
+    a. install dependencies
 
     ```
     npm i --save-dev react@16.5.2 react-dom@16.5.2
     ```
 
-    4.2 create a file called `index.js` in `src` directory
+    b. create a file called `index.js` in `src` directory
 
     ```
     cat <<EOF > src/index.js
@@ -251,7 +251,7 @@ python3.9 -m http.server 8001
     EOF
     ```
 
-    4.3 create another file called `App.js` in `src` directory
+    c. create another file called `App.js` in `src` directory
 
     ```
     cat <<EOF > src/App.js
@@ -272,7 +272,7 @@ python3.9 -m http.server 8001
     EOF
     ```
 
-    4.4 create a css file called `App.css` in `src`
+    d. create a css file called `App.css` in `src`
 
     ```
     cat <<EOF > src/App.css
@@ -283,7 +283,7 @@ python3.9 -m http.server 8001
     EOF
     ```
 
-    4.5 start dev server: add this into `package.json` scripts and run `npm run dev-server`
+    e. start dev server: add this into `package.json` scripts and run `npm run dev-server`
 
     ```
     "dev-server": "webpack-dev-server --mode development"
@@ -291,13 +291,13 @@ python3.9 -m http.server 8001
 
     Step 5: HMR
 
-    5.1 install dependencies
+    a. install dependencies
 
     ```
     npm i --save react-hot-loader@4.3.11
     ```
 
-    5.2 mofidy App.js
+    b. mofidy App.js
 
     ```
     cat <<EOF > src/App.js
@@ -319,7 +319,7 @@ python3.9 -m http.server 8001
     EOF
     ```
 
-    5.3 add `build` into `scripts` and run `npm run build`
+    c. add `build` into `scripts` and run `npm run build`
 
     ```
     "build": "webpack --mode development"
