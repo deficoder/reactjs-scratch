@@ -131,34 +131,34 @@ python3.9 -m http.server 8001
 
     ***[Creating a Toolchain from Scratch](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)***
 
-        Step 1: Setup [npm](https://www.npmjs.com)
-        - create a new repo in github and choice `Add .gitignore` template with Node
-        - clone this repo to your dev host `git clone`
-        - initialize your project with `npm init`
-        - create `public` and `src` directory in your new project folder
-        - copy the following HTML markup into a new file `index.html` inside of the public directory
+    Step 1: Setup [npm](https://www.npmjs.com)
+    - create a new repo in github and choice `Add .gitignore` template with Node
+    - clone this repo to your dev host `git clone`
+    - initialize your project with `npm init`
+    - create `public` and `src` directory in your new project folder
+    - copy the following HTML markup into a new file `index.html` inside of the public directory
 
-        ```
-        cat <<EOF > public/index.html
-        <!-- sourced from https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html -->
-        <!DOCTYPE html>
-        <html>
-            <head>
-                <meta charset="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                <title>React Starter</title>
-            </head>
+    ```
+    cat <<EOF > public/index.html
+    <!-- sourced from https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html -->
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>React Starter</title>
+        </head>
 
-            <body>
-                <div id="root"></div>
-                <noscript>
-                    You need to enable JavaScript to run this app.
-                </noscript>
-                <script src="../dist/bundle.js"></script>
-            </body>
-        </html>
-        EOF
-        ```
+        <body>
+            <div id="root"></div>
+            <noscript>
+                You need to enable JavaScript to run this app.
+            </noscript>
+            <script src="../dist/bundle.js"></script>
+        </body>
+    </html>
+    EOF
+    ```
 
         Step 2: [Babel](https://babeljs.io) 
         - install dependencies
