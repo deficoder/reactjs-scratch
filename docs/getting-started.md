@@ -132,10 +132,15 @@ python3.9 -m http.server 8001
     ***[Creating a Toolchain from Scratch](https://medium.com/@JedaiSaboteur/creating-a-react-app-from-scratch-f3c693b84658)***
 
     Step 1: Setup [npm](https://www.npmjs.com)
+    
     1.1 create a new repo in github and choice `Add .gitignore` template with Node
+    
     1.2 clone this repo to your dev host `git clone`
+    
     1.3 initialize your project with `npm init`
+    
     1.4 create `public` and `src` directory in your new project folder
+    
     1.5 copy the following HTML markup into a new file `index.html` inside of the public directory
 
     ```
@@ -161,6 +166,7 @@ python3.9 -m http.server 8001
     ```
 
     Step 2: [Babel](https://babeljs.io) 
+    
     2.1 install dependencies
 
     ```
