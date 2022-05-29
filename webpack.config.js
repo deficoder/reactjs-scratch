@@ -15,6 +15,11 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(mp4|mp3|vtt|png|svg|jpg|jpeg|gif|tiff)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "file-loader"
       }
     ]
   },
