@@ -49,14 +49,15 @@ class FileUpload extends Component {
 
     render() {
         const upStyle = {
-          color: "Gray",
           padding: "20px",
           fontFamily: "Arial",
           align: "center"
         }
         return (
             <div style={upStyle}>
-                <p>Upload Subtitle <i>.csv</i> file converter to <i>.txt</i> format, then upload to <a href="https://readlang.com/upload">ReadLang</a></p>
+                <h2>Subtitle Converter</h2>
+
+                <p>Upload <i>.csv</i> Output <i>.txt</i> Paste to <a href="https://readlang.com/upload">ReadLang</a></p>
                 <input type="file" onChange={this.onFileChange} />
                 <button onClick={this.onFileUpload}>Submit!</button>
             </div>
